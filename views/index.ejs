@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<div class="row mb-4">
+  <div class="col-12">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">Selamat Datang di TiketKita</h1>
+        <p class="col-md-8 fs-5">Sistem pemesanan tiket event terpercaya. Temukan dan pesan tiket untuk event favorit Anda!</p>
+        <a href="/events" class="btn btn-primary btn-lg">Cari Event</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="mb-3">Event Tersedia</h3>
+<div class="row">
+  <% if (events.length === 0) { %>
+    <div class="col-12"><div class="alert alert-info">Belum ada event tersedia saat ini.</div></div>
+  <% } %>
+  <% events.forEach(event => { %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.title %></h5>
+          <p class="card-text text-muted">
+            <i class="bi bi-calendar-event"></i> <%= new Date(event.date).toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) %><br>
+            <i class="bi bi-geo-alt"></i> <%= event.location %><br>
+            <i class="bi bi-currency-dollar"></i> Rp <%= Number(event.ticket_price).toLocaleString('id-ID') %>
+          </p>
+          <a href="/events/<%= event.id %>" class="btn btn-outline-primary">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>

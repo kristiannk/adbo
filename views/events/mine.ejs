@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<h3 class="mb-3">Event Saya</h3>
+<a href="/events/create" class="btn btn-primary mb-3"><i class="bi bi-plus-circle"></i> Buat Event Baru</a>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Tanggal</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (events.length === 0) { %>
+        <tr><td colspan="4" class="text-center">Belum ada event.</td></tr>
+      <% } %>
+      <% events.forEach(event => { %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= new Date(event.date).toLocaleDateString('id-ID') %></td>
+          <td><span class="badge bg-<%= event.status === 'draft' ? 'secondary' : event.status === 'menunggu_approval' ? 'warning' : event.status === 'disetujui' || event.status === 'dipublikasikan' || event.status === 'penjualan_tiket' ? 'success' : event.status === 'ditolak' ? 'danger' : 'info' %>"><%= event.status.replace(/_/g, ' ') %></span></td>
+          <td>
+            <a href="/events/<%= event.id %>" class="btn btn-sm btn-outline-info">Detail</a>
+            <% if (event.status === 'draft') { %>
+              <form method="POST" action="/events/<%= event.id %>/submit" style="display:inline">
+                <button type="submit" class="btn btn-sm btn-outline-primary">Ajukan Approval</button>
+              </form>
+            <% } %>
+            <% if (event.status === 'dipublikasikan') { %>
+              <form method="POST" action="/events/<%= event.id %>/reschedule" style="display:inline" onsubmit="return prompt('Tanggal baru (YYYY-MM-DDTHH:MM):') && true">
+                <input type="hidden" name="date" id="reschedule-date-<%= event.id %>">
+                <button type="button" class="btn btn-sm btn-outline-warning" onclick="const d=prompt('Masukkan tanggal baru (YYYY-MM-DDTHH:MM):'); if(d){document.getElementById('reschedule-date-<%= event.id %>').value=d;this.form.submit()}">Reschedule</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('../partials/footer') %>

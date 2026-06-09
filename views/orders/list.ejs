@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<h3 class="mb-3">Pesanan Saya</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Tanggal Event</th>
+        <th>Jumlah</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (orders.length === 0) { %>
+        <tr><td colspan="6" class="text-center">Belum ada pesanan.</td></tr>
+      <% } %>
+      <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.event_title %></td>
+          <td><%= new Date(order.event_date).toLocaleDateString('id-ID') %></td>
+          <td><%= order.quantity %></td>
+          <td>Rp <%= Number(order.total_price).toLocaleString('id-ID') %></td>
+          <td><span class="badge bg-<%= order.status === 'terkonfirmasi' ? 'success' : order.status === 'dibatalkan' ? 'danger' : order.status === 'draft_pesanan' ? 'secondary' : order.status === 'menunggu_pembayaran' ? 'warning' : 'info' %>"><%= order.status.replace(/_/g, ' ') %></span></td>
+          <td><a href="/orders/<%= order.id %>" class="btn btn-sm btn-outline-primary">Detail</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('../partials/footer') %>

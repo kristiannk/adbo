@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="gNulhqKRrvVPJ5vo1DPi">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-1" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="440" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-2" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-1" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="455" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-5" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="BO6zxtjsQA0bRWQPZ1FI-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Draft Pesanan" vertex="1">
+          <mxGeometry height="60" width="120" x="395" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-30" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-31" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Menunggu Pembayaran" vertex="1">
+          <mxGeometry height="60" width="120" x="395" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Checkout" vertex="1">
+          <mxGeometry height="30" width="60" x="455" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-29" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Dibatalkan" vertex="1">
+          <mxGeometry height="60" width="120" x="570" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Pembayaran Gagal" vertex="1">
+          <mxGeometry height="30" width="60" x="640" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-15" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-16" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Terkonfirmasi" vertex="1">
+          <mxGeometry height="60" width="120" x="275" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Pembayaran Berhasil" vertex="1">
+          <mxGeometry height="30" width="60" x="260" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-20" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="E-Ticket Aktif" vertex="1">
+          <mxGeometry height="60" width="120" x="140" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-18" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-28" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Refund diajukan" vertex="1">
+          <mxGeometry height="60" width="120" x="370" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-22" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Refund diproses" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-27" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Checkin" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-26" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Refund selesai" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-25" edge="1" parent="1" source="BO6zxtjsQA0bRWQPZ1FI-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="BO6zxtjsQA0bRWQPZ1FI-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Selesai" vertex="1">
+          <mxGeometry height="60" width="120" x="425" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-24" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="470" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="E-Ticket diterbitkan" vertex="1">
+          <mxGeometry height="30" width="60" x="130" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-34" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Ajukan Refund" vertex="1">
+          <mxGeometry height="30" width="60" x="430" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Refund Disetujui" vertex="1">
+          <mxGeometry height="30" width="60" x="350" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Refund Ditolak" vertex="1">
+          <mxGeometry height="30" width="60" x="500" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="BO6zxtjsQA0bRWQPZ1FI-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Scan Qr Code" vertex="1">
+          <mxGeometry height="30" width="60" x="30" y="495" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

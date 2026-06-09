@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<h3 class="mb-3">Kelola Pesanan</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Event</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.user_name %></td>
+          <td><%= order.event_title %></td>
+          <td>Rp <%= Number(order.total_price).toLocaleString('id-ID') %></td>
+          <td><span class="badge bg-<%= order.status === 'terkonfirmasi' ? 'success' : order.status === 'dibatalkan' ? 'danger' : order.status === 'draft_pesanan' ? 'secondary' : order.status === 'menunggu_pembayaran' ? 'warning' : 'info' %>"><%= order.status.replace(/_/g, ' ') %></span></td>
+          <td>
+            <a href="/orders/<%= order.id %>" class="btn btn-sm btn-outline-info">Detail</a>
+            <% if (order.status === 'refund_diajukan') { %>
+              <form method="POST" action="/admin/orders/<%= order.id %>/approve-refund" style="display:inline">
+                <button class="btn btn-sm btn-success">Setujui Refund</button>
+              </form>
+              <form method="POST" action="/admin/orders/<%= order.id %>/reject-refund" style="display:inline">
+                <button class="btn btn-sm btn-danger">Tolak Refund</button>
+              </form>
+            <% } else if (order.status === 'refund_diproses') { %>
+              <form method="POST" action="/admin/orders/<%= order.id %>/complete-refund" style="display:inline">
+                <button class="btn btn-sm btn-success">Selesaikan Refund</button>
+              </form>
+            <% } else if (order.status === 'terkonfirmasi') { %>
+              <form method="POST" action="/admin/orders/<%= order.id %>/checkin" style="display:inline">
+                <button class="btn btn-sm btn-info">Check-in</button>
+              </form>
+            <% } else if (order.status === 'checkin') { %>
+              <form method="POST" action="/admin/orders/<%= order.id %>/complete-order" style="display:inline">
+                <button class="btn btn-sm btn-success">Selesaikan</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<a href="/admin" class="btn btn-secondary">Kembali ke Dashboard</a>
+<%- include('../partials/footer') %>

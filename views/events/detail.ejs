@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h2><%= event.title %></h2>
+        <p class="text-muted">
+          <i class="bi bi-person"></i> Diselenggarakan oleh <%= event.organizer_name %><br>
+          <i class="bi bi-calendar-event"></i> <%= new Date(event.date).toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit' }) %><br>
+          <i class="bi bi-geo-alt"></i> <%= event.location %>
+        </p>
+        <hr>
+        <p><%= event.description || 'Tidak ada deskripsi.' %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Detail Tiket</h5>
+        <p class="mb-1"><strong>Harga:</strong> Rp <%= Number(event.ticket_price).toLocaleString('id-ID') %></p>
+        <p class="mb-1"><strong>Kuota:</strong> <%= event.ticket_quota %></p>
+        <p class="mb-1"><strong>Sisa Tiket:</strong> <%= ticketsLeft %></p>
+        <p class="mb-3"><span class="badge bg-<%= event.status === 'penjualan_tiket' ? 'success' : 'secondary' %>"><%= event.status.replace(/_/g, ' ') %></span></p>
+        <% if (event.status === 'penjualan_tiket' && user && user.status === 'aktif') { %>
+          <a href="/orders/create/<%= event.id %>" class="btn btn-primary w-100">Beli Tiket</a>
+        <% } else if (!user) { %>
+          <a href="/auth/login" class="btn btn-outline-primary w-100">Login untuk membeli</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

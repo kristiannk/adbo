@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="kJDX7miE2rDHwnGXwnuY">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fQHgmffAs4QzBkIFKn95-1" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="410" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-2" edge="1" parent="1" source="fQHgmffAs4QzBkIFKn95-1" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-5" edge="1" parent="1" source="fQHgmffAs4QzBkIFKn95-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="fQHgmffAs4QzBkIFKn95-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Menunggu Pembayaran" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-9" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fQHgmffAs4QzBkIFKn95-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="485" y="230" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Diproses Gateway" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-11" edge="1" parent="1" source="fQHgmffAs4QzBkIFKn95-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fQHgmffAs4QzBkIFKn95-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Berhasil" vertex="1">
+          <mxGeometry height="60" width="120" x="245" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-14" edge="1" parent="1" source="fQHgmffAs4QzBkIFKn95-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="fQHgmffAs4QzBkIFKn95-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Gagal" vertex="1">
+          <mxGeometry height="60" width="120" x="485" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-8" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.558;entryY=-0.061;entryDx=0;entryDy=0;entryPerimeter=0;" target="fQHgmffAs4QzBkIFKn95-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="230" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-13" edge="1" parent="1" source="fQHgmffAs4QzBkIFKn95-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="fQHgmffAs4QzBkIFKn95-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Notifikasi Terkirim" vertex="1">
+          <mxGeometry height="60" width="120" x="245" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-12" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="410" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Valid" vertex="1">
+          <mxGeometry height="30" width="60" x="250" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="fQHgmffAs4QzBkIFKn95-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Tidak Valid" vertex="1">
+          <mxGeometry height="30" width="60" x="540" y="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+<h3 class="mb-3">Kelola Event</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Penyelenggara</th>
+        <th>Tanggal</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.forEach(event => { %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= event.organizer_name %></td>
+          <td><%= new Date(event.date).toLocaleDateString('id-ID') %></td>
+          <td><span class="badge bg-<%= ['disetujui','dipublikasikan','penjualan_tiket','event_berlangsung'].includes(event.status) ? 'success' : event.status === 'menunggu_approval' ? 'warning' : event.status === 'ditolak' ? 'danger' : event.status === 'draft' ? 'secondary' : 'info' %>"><%= event.status.replace(/_/g, ' ') %></span></td>
+          <td>
+            <a href="/events/<%= event.id %>" class="btn btn-sm btn-outline-info">Detail</a>
+            <% if (event.status === 'menunggu_approval') { %>
+              <form method="POST" action="/admin/events/<%= event.id %>/approve" style="display:inline">
+                <button class="btn btn-sm btn-success">Approve</button>
+              </form>
+              <form method="POST" action="/admin/events/<%= event.id %>/reject" style="display:inline">
+                <button class="btn btn-sm btn-danger">Tolak</button>
+              </form>
+            <% } else if (event.status === 'disetujui') { %>
+              <form method="POST" action="/admin/events/<%= event.id %>/publish" style="display:inline">
+                <button class="btn btn-sm btn-primary">Publikasikan</button>
+              </form>
+            <% } else if (event.status === 'dipublikasikan') { %>
+              <form method="POST" action="/admin/events/<%= event.id %>/start-sales" style="display:inline">
+                <button class="btn btn-sm btn-success">Mulai Penjualan</button>
+              </form>
+              <form method="POST" action="/admin/events/<%= event.id %>/cancel" style="display:inline" onclick="return confirm('Batalkan event?')">
+                <button class="btn btn-sm btn-danger">Batalkan</button>
+              </form>
+            <% } else if (event.status === 'penjualan_tiket') { %>
+              <form method="POST" action="/admin/events/<%= event.id %>/start-event" style="display:inline">
+                <button class="btn btn-sm btn-info">Mulai Event</button>
+              </form>
+              <form method="POST" action="/admin/events/<%= event.id %>/cancel" style="display:inline" onclick="return confirm('Batalkan event?')">
+                <button class="btn btn-sm btn-danger">Batalkan</button>
+              </form>
+            <% } else if (event.status === 'event_berlangsung') { %>
+              <form method="POST" action="/admin/events/<%= event.id %>/complete" style="display:inline">
+                <button class="btn btn-sm btn-success">Selesaikan</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<a href="/admin" class="btn btn-secondary">Kembali ke Dashboard</a>
+<%- include('../partials/footer') %>

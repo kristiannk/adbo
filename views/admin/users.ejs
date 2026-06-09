@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+<h3 class="mb-3">Kelola User</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><span class="badge bg-<%= user.role === 'admin' ? 'danger' : 'primary' %>"><%= user.role %></span></td>
+          <td><span class="badge bg-<%= user.status === 'aktif' ? 'success' : user.status === 'menunggu_verifikasi' ? 'warning' : user.status === 'ditolak' ? 'danger' : 'secondary' %>"><%= user.status.replace(/_/g, ' ') %></span></td>
+          <td>
+            <% if (user.status === 'menunggu_verifikasi') { %>
+              <form method="POST" action="/admin/users/<%= user.id %>/verify" style="display:inline">
+                <button class="btn btn-sm btn-success">Verifikasi</button>
+              </form>
+              <form method="POST" action="/admin/users/<%= user.id %>/reject" style="display:inline">
+                <button class="btn btn-sm btn-danger">Tolak</button>
+              </form>
+            <% } else if (user.status === 'aktif') { %>
+              <form method="POST" action="/admin/users/<%= user.id %>/suspend" style="display:inline">
+                <button class="btn btn-sm btn-warning">Suspend</button>
+              </form>
+            <% } else if (user.status === 'disuspended') { %>
+              <form method="POST" action="/admin/users/<%= user.id %>/activate" style="display:inline">
+                <button class="btn btn-sm btn-success">Aktifkan</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<a href="/admin" class="btn btn-secondary">Kembali ke Dashboard</a>
+<%- include('../partials/footer') %>

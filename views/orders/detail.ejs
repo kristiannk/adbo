@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+<% if (req.query.success) { %><div class="alert alert-success">Pembayaran berhasil! E-Ticket telah diterbitkan.</div><% } %>
+<% if (req.query.failed) { %><div class="alert alert-danger">Pembayaran gagal. Silakan coba lagi.</div><% } %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h4>Detail Pesanan #<%= order.id %></h4>
+        <table class="table">
+          <tr><td>Event</td><td><strong><%= order.event_title %></strong></td></tr>
+          <tr><td>Tanggal</td><td><%= new Date(order.event_date).toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) %></td></tr>
+          <tr><td>Lokasi</td><td><%= order.location %></td></tr>
+          <tr><td>Jumlah Tiket</td><td><%= order.quantity %></td></tr>
+          <tr><td>Total Harga</td><td><strong>Rp <%= Number(order.total_price).toLocaleString('id-ID') %></strong></td></tr>
+          <tr><td>Status</td><td><span class="badge bg-<%= order.status === 'terkonfirmasi' ? 'success' : order.status === 'dibatalkan' ? 'danger' : order.status === 'draft_pesanan' ? 'secondary' : order.status === 'menunggu_pembayaran' ? 'warning' : 'info' %>"><%= order.status.replace(/_/g, ' ') %></span></td></tr>
+        </table>
+      </div>
+    </div>
+    <% if (tickets && tickets.length > 0) { %>
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5>E-Ticket</h5>
+          <% tickets.forEach(ticket => { %>
+            <div class="border rounded p-3 mb-2 bg-light">
+              <p class="mb-1"><strong>Kode Tiket:</strong> <code><%= ticket.qr_code %></code></p>
+              <p class="mb-0"><strong>Status:</strong> <span class="badge bg-<%= ticket.status === 'aktif' ? 'success' : ticket.status === 'digunakan' ? 'secondary' : 'warning' %>"><%= ticket.status %></span></p>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>Aksi</h5>
+        <% if (order.status === 'draft_pesanan') { %>
+          <form method="POST" action="/orders/<%= order.id %>/checkout">
+            <button type="submit" class="btn btn-primary w-100 mb-2">Checkout</button>
+          </form>
+          <form method="POST" action="/orders/<%= order.id %>/cancel">
+            <button type="submit" class="btn btn-danger w-100" onclick="return confirm('Batalkan pesanan?')">Batalkan Pesanan</button>
+          </form>
+        <% } else if (order.status === 'menunggu_pembayaran') { %>
+          <form method="POST" action="/payments/process/<%= order.id %>">
+            <button type="submit" class="btn btn-success w-100 mb-2">Bayar Sekarang (Simulasi)</button>
+          </form>
+          <form method="POST" action="/orders/<%= order.id %>/cancel">
+            <button type="submit" class="btn btn-danger w-100" onclick="return confirm('Batalkan pesanan?')">Batalkan</button>
+          </form>
+        <% } else if (order.status === 'terkonfirmasi') { %>
+          <form method="POST" action="/orders/<%= order.id %>/refund">
+            <button type="submit" class="btn btn-warning w-100" onclick="return confirm('Ajukan refund?')">Ajukan Refund</button>
+          </form>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

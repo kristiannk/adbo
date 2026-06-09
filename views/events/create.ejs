@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow">
+      <div class="card-body p-4">
+        <h3 class="mb-4">Buat Event Baru</h3>
+        <% if (error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+        <form method="POST" action="/events/create">
+          <div class="mb-3">
+            <label class="form-label">Judul Event *</label>
+            <input type="text" name="title" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Deskripsi</label>
+            <textarea name="description" class="form-control" rows="4"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Tanggal & Waktu *</label>
+              <input type="datetime-local" name="date" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Lokasi *</label>
+              <input type="text" name="location" class="form-control" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Harga Tiket (Rp)</label>
+              <input type="number" name="ticket_price" class="form-control" min="0" value="0">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Kuota Tiket</label>
+              <input type="number" name="ticket_quota" class="form-control" min="0" value="100">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Simpan sebagai Draft</button>
+          <a href="/events/mine" class="btn btn-secondary">Kembali</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
