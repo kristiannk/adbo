@@ -4,7 +4,7 @@ const { isAuthenticated } = require('../middleware/auth');
 const router = express.Router();
 
 router.post('/process/:orderId', isAuthenticated, (req, res) => {
-  const order = prepare('SELECT * FROM orders WHERE id = ? AND user_id = ? AND status = ?').get(req.params.orderId, req.session.userId, 'menunggu_pembayaran');
+  const order = prepare('SELECT * FROM orders WHERE id = ? AND user_id = ? AND status = ?').get(req.params.orderId, req.sessionId, 'menunggu_pembayaran');
   if (!order) return res.status(404).send('Pembayaran tidak dapat diproses.');
 
   prepare("UPDATE payments SET status = 'diproses_gateway', updated_at = CURRENT_TIMESTAMP WHERE order_id = ?").run(order.id);

@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { prepare } = require('../database');
+const { setSessionCookie, clearSessionCookie } = require('../cookie');
 const router = express.Router();
 
 router.get('/auth/login', (req, res) => {
@@ -13,8 +14,7 @@ router.post('/auth/login', (req, res) => {
   if (!user || !bcrypt.compareSync(password, user.password)) {
     return res.render('auth/login', { error: 'Email atau password salah.', registered: null });
   }
-  req.session.userId = user.id;
-  req.session.role = user.role;
+  setSessionCookie(res, { userId: user.id, role: user.role });
   res.redirect('/');
 });
 
@@ -24,6 +24,9 @@ router.get('/auth/register', (req, res) => {
 
 router.post('/auth/register', (req, res) => {
   const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.render('auth/register', { error: 'Semua field harus diisi.' });
+  }
   const existing = prepare('SELECT id FROM users WHERE email = ?').get(email);
   if (existing) {
     return res.render('auth/register', { error: 'Email sudah terdaftar.' });
@@ -34,7 +37,7 @@ router.post('/auth/register', (req, res) => {
 });
 
 router.get('/auth/logout', (req, res) => {
-  req.session = null;
+  clearSessionCookie(res);
   res.redirect('/');
 });
 

@@ -17,12 +17,12 @@ router.post('/create', isAuthenticated, isActive, (req, res) => {
   if (!title || !date || !location) {
     return res.render('events/create', { error: 'Judul, tanggal, dan lokasi wajib diisi.' });
   }
-  prepare('INSERT INTO events (organizer_id, title, description, date, location, ticket_price, ticket_quota, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run(req.session.userId, title, description, date, location, parseFloat(ticket_price) || 0, parseInt(ticket_quota) || 0, 'draft');
+  prepare('INSERT INTO events (organizer_id, title, description, date, location, ticket_price, ticket_quota, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run(req.sessionId, title, description, date, location, parseFloat(ticket_price) || 0, parseInt(ticket_quota) || 0, 'draft');
   res.redirect('/events/mine');
 });
 
 router.get('/mine', isAuthenticated, (req, res) => {
-  const events = prepare("SELECT * FROM events WHERE organizer_id = ? ORDER BY created_at DESC").all(req.session.userId);
+  const events = prepare("SELECT * FROM events WHERE organizer_id = ? ORDER BY created_at DESC").all(req.sessionId);
   res.render('events/mine', { events });
 });
 
@@ -35,14 +35,14 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/:id/submit', isAuthenticated, (req, res) => {
-  const event = prepare('SELECT * FROM events WHERE id = ? AND organizer_id = ?').get(req.params.id, req.session.userId);
+  const event = prepare('SELECT * FROM events WHERE id = ? AND organizer_id = ?').get(req.params.id, req.sessionId);
   if (!event) return res.status(404).send('Event tidak ditemukan.');
   prepare("UPDATE events SET status = 'menunggu_approval', updated_at = CURRENT_TIMESTAMP WHERE id = ?").run(req.params.id);
   res.redirect('/events/mine');
 });
 
 router.post('/:id/edit', isAuthenticated, (req, res) => {
-  const event = prepare('SELECT * FROM events WHERE id = ? AND organizer_id = ? AND status = ?').get(req.params.id, req.session.userId, 'draft');
+  const event = prepare('SELECT * FROM events WHERE id = ? AND organizer_id = ? AND status = ?').get(req.params.id, req.sessionId, 'draft');
   if (!event) return res.status(404).send('Event tidak dapat diedit.');
   const { title, description, date, location, ticket_price, ticket_quota } = req.body;
   prepare("UPDATE events SET title=?, description=?, date=?, location=?, ticket_price=?, ticket_quota=?, updated_at=CURRENT_TIMESTAMP WHERE id=?").run(title, description, date, location, parseFloat(ticket_price) || 0, parseInt(ticket_quota) || 0, req.params.id);
@@ -50,7 +50,7 @@ router.post('/:id/edit', isAuthenticated, (req, res) => {
 });
 
 router.post('/:id/reschedule', isAuthenticated, (req, res) => {
-  const event = prepare('SELECT * FROM events WHERE id = ? AND organizer_id = ? AND status = ?').get(req.params.id, req.session.userId, 'dipublikasikan');
+  const event = prepare('SELECT * FROM events WHERE id = ? AND organizer_id = ? AND status = ?').get(req.params.id, req.sessionId, 'dipublikasikan');
   if (!event) return res.status(404).send('Event tidak dapat dijadwalkan ulang.');
   const { date } = req.body;
   prepare("UPDATE events SET date=?, status='dijadwalkan_ulang', updated_at=CURRENT_TIMESTAMP WHERE id=?").run(date, req.params.id);

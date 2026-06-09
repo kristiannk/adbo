@@ -1,6 +1,11 @@
-const { app, ensureStarted } = require('../app');
+const { app, start } = require('../app');
+
+let initialized = false;
 
 module.exports = async (req, res) => {
-  await ensureStarted();
+  if (!initialized) {
+    initialized = true;
+    await start();
+  }
   return app(req, res);
 };
