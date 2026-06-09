@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "vercel-build": "echo 'Build done'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,9 +14,9 @@
   "type": "commonjs",
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^12.10.0",
+    "cookie-session": "^2.1.1",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
-    "express-session": "^1.19.0"
+    "sql.js": "^1.14.1"
   }
 }

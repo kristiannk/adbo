@@ -1,0 +1,4 @@
+node_modules/
+ticket_system.db
+.env
+.vercel
